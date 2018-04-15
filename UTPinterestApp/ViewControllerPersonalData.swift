@@ -10,6 +10,11 @@ import UIKit
 
 class ViewControllerPersonalData: UIViewController {
 
+    //MARK: Outlets
+    
+    @IBOutlet weak var greetingLabel: UILabel!
+    @IBOutlet weak var boardsButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

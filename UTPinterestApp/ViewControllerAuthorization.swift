@@ -15,11 +15,14 @@ class ViewControllerAuthorization: UIViewController {
     //MARK: Outlets
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var startLabel: UILabel!
+    
+    @IBOutlet weak var someButton: UIButton!
     
     //MARK: Properties
     var user = PDKUser()
     var accessToken = ""
-    let story = UIStoryboard(name: "Main", bundle: nil)
+    let story : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,35 +42,32 @@ class ViewControllerAuthorization: UIViewController {
         _ = self.navigationController?.popViewController(animated: true)
     }
     
-    @IBAction func loginButtonLoginClicked(_ sender: UIButton) {
-        activityIndicator.startAnimating()
-        self.view.isUserInteractionEnabled = false
-        
-        PDKClient.sharedInstance().authenticate(withPermissions: [PDKClient.sharedInstance().silentlyAuthenticateWithSuccess( { (responseObject :PDKResponseObject!) -> Void in
-            
+    func authenticateUser() {
+        PDKClient.sharedInstance().authenticate(withPermissions: [PDKClientReadPublicPermissions,PDKClientWritePublicPermissions,PDKClientReadRelationshipsPermissions,PDKClientWriteRelationshipsPermissions], from: self, withSuccess: { (PDKResponseObject) in
             self.activityIndicator.stopAnimating()
             self.accessToken = PDKClient.sharedInstance().oauthToken
-            
-            let parameters : [String:String] =
-                [
-                    "fields":  "first_name,last_name,url,image,username"
-            ]
-            
+            let parameters: [String : String] = ["fields": "first_name,id,last_name,url,image,username,bio,counts,created_at,account_type"]
             PDKClient.sharedInstance().getPath("/v1/me/", parameters: parameters, withSuccess: {
-                
                 (PDKResponseObject) in
-                let viewControllerPersonalData = story.instantiateViewController(withIdentifier: "viewControllerPersonalData") as ViewControllerPersonalData
-                self.presentViewController(viewControllerPersonalData, animated: true)
+                var viewControllerPersonalData = ViewControllerPersonalData()
+                viewControllerPersonalData = self.story.instantiateViewController(withIdentifier: "ViewControllerPersonalData") as! ViewControllerPersonalData
+                self.navigationController!.pushViewController(viewControllerPersonalData, animated: true)
             }) {
                 (Error) in
-                if let error = Error
-                {
-                    print("Error")
-                }
                 self.view.isUserInteractionEnabled = true
+                self.startLabel.text = "Try again..."
+                self.activityIndicator.stopAnimating()
             }
-        }
-        }))
+        }, andFailure: {
+            (Error) in
+            self.view.isUserInteractionEnabled = true
+            self.startLabel.text = "Please try again..."
+            self.activityIndicator.stopAnimating()
+        })
+    }
+    
+    @IBAction func loginButtonClicked(_ sender: UIButton) {
+        activityIndicator.startAnimating()
+        self.authenticateUser()
+    }
 }
-
-
