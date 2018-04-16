@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -89,7 +90,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YNi-Q8-gL9">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YNi-Q8-gL9">
                                 <rect key="frame" x="16" y="215" width="343" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="25"/>
@@ -116,6 +117,7 @@
                         <color key="backgroundColor" red="0.98623579740524292" green="0.68813169002532959" blue="0.7083665132522583" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
+                        <outlet property="boardsButton" destination="a1N-k0-ean" id="B3R-wL-SrB"/>
                         <outlet property="greetingLabel" destination="YNi-Q8-gL9" id="0ua-WN-vqr"/>
                     </connections>
                 </viewController>
@@ -135,18 +137,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Please press button to login" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KkA-Lx-vSv">
-                                <rect key="frame" x="21" y="177" width="338" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please press button to login" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KkA-Lx-vSv">
+                                <rect key="frame" x="16" y="179" width="343" height="91"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="25"/>
                                 <color key="textColor" red="0.97895176349892743" green="1" blue="0.96366084367709581" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U5T-jR-CGj">
-                                <rect key="frame" x="146" y="244" width="86" height="69"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="0Yx-mG-pZC">
+                                <rect key="frame" x="169" y="433" width="37" height="37"/>
+                                <color key="color" red="1" green="0.37682742460000002" blue="0.37274749340000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U5T-jR-CGj">
+                                <rect key="frame" x="138" y="307" width="98" height="53"/>
                                 <color key="backgroundColor" red="1" green="0.37682742461767449" blue="0.37274749340495539" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="13"/>
                                 <state key="normal" title="ENTER">
                                     <color key="titleColor" red="1" green="0.99849833696438084" blue="0.97873732776386424" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -154,13 +158,20 @@
                                     <action selector="loginButtonClicked:" destination="076-kA-I2U" eventType="touchUpInside" id="xKq-DY-4op"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="0Yx-mG-pZC">
-                                <rect key="frame" x="171" y="353" width="37" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <color key="color" red="1" green="0.37682742460000002" blue="0.37274749340000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.69170807255144462" blue="0.71118923686915392" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="0Yx-mG-pZC" firstAttribute="top" secondItem="U5T-jR-CGj" secondAttribute="bottom" constant="73" id="CDY-Vp-tQn"/>
+                            <constraint firstItem="U5T-jR-CGj" firstAttribute="top" secondItem="tGX-q2-Zx1" secondAttribute="bottom" constant="191" id="E33-PT-8xm"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="U5T-jR-CGj" secondAttribute="trailing" constant="123" id="F0u-rD-Y0b"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="0Yx-mG-pZC" secondAttribute="trailing" constant="153" id="F7X-ZD-iOL"/>
+                            <constraint firstItem="KkA-Lx-vSv" firstAttribute="top" secondItem="tGX-q2-Zx1" secondAttribute="bottom" constant="63" id="QTl-K1-aon"/>
+                            <constraint firstItem="KkA-Lx-vSv" firstAttribute="leading" secondItem="RG6-pv-e6u" secondAttribute="leadingMargin" id="ZDY-Kf-Qhp"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="KkA-Lx-vSv" secondAttribute="trailing" id="cEk-Hg-CAm"/>
+                            <constraint firstItem="0Yx-mG-pZC" firstAttribute="leading" secondItem="RG6-pv-e6u" secondAttribute="leadingMargin" constant="153" id="hPp-sZ-CDd"/>
+                            <constraint firstItem="U5T-jR-CGj" firstAttribute="top" secondItem="KkA-Lx-vSv" secondAttribute="bottom" constant="37" id="kHy-Gg-c6a"/>
+                            <constraint firstItem="U5T-jR-CGj" firstAttribute="leading" secondItem="RG6-pv-e6u" secondAttribute="leadingMargin" constant="122" id="qS2-1O-BKJ"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Authorization" id="v7V-xN-obm"/>
                     <connections>

@@ -8,7 +8,6 @@
 
 import UIKit
 import PinterestSDK
-import SwiftyJSON
 
 class ViewControllerAuthorization: UIViewController {
     
@@ -16,8 +15,6 @@ class ViewControllerAuthorization: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var startLabel: UILabel!
-    
-    @IBOutlet weak var someButton: UIButton!
     
     //MARK: Properties
     var user = PDKUser()
@@ -38,10 +35,6 @@ class ViewControllerAuthorization: UIViewController {
     
     //MARK: Metods
     
-    @IBAction func backButtonClicked(_ sender: UIButton) {
-        _ = self.navigationController?.popViewController(animated: true)
-    }
-    
     func authenticateUser() {
         PDKClient.sharedInstance().authenticate(withPermissions: [PDKClientReadPublicPermissions,PDKClientWritePublicPermissions,PDKClientReadRelationshipsPermissions,PDKClientWriteRelationshipsPermissions], from: self, withSuccess: { (PDKResponseObject) in
             self.activityIndicator.stopAnimating()
@@ -52,17 +45,18 @@ class ViewControllerAuthorization: UIViewController {
                 var viewControllerPersonalData = ViewControllerPersonalData()
                 viewControllerPersonalData = self.story.instantiateViewController(withIdentifier: "ViewControllerPersonalData") as! ViewControllerPersonalData
                 self.navigationController!.pushViewController(viewControllerPersonalData, animated: true)
+                self.user = (PDKResponseObject?.user())!
+                 viewControllerPersonalData.greetingLabel.text = "Welcome " + (PDKResponseObject?.user().firstName)! + " " + (PDKResponseObject?.user().lastName != nil ? (PDKResponseObject?.user().lastName)! : "")
+                
             }) {
                 (Error) in
                 self.view.isUserInteractionEnabled = true
                 self.startLabel.text = "Try again..."
-                self.activityIndicator.stopAnimating()
             }
         }, andFailure: {
             (Error) in
             self.view.isUserInteractionEnabled = true
             self.startLabel.text = "Please try again..."
-            self.activityIndicator.stopAnimating()
         })
     }
     
