@@ -7,18 +7,21 @@
 //
 
 import UIKit
-import PinterestSDK
 
 class ViewControllerPersonalData: UIViewController {
     
     //MARK: Outlets
     @IBOutlet weak var greetingLabel: UILabel!
     @IBOutlet weak var boardsButton: UIButton!
+    @IBOutlet weak var helloLabel: UILabel!
     
     //MARK: Properties
+    let story : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Greeting"
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -26,23 +29,10 @@ class ViewControllerPersonalData: UIViewController {
     }
     
     //MARK: Metods
-//    func greetingUser() {
-//        PDKClient.sharedInstance().authenticate(withPermissions: [PDKClientReadPublicPermissions,PDKClientWritePublicPermissions,PDKClientReadRelationshipsPermissions,PDKClientWriteRelationshipsPermissions], from: self, withSuccess: { (PDKResponseObject) in
-//            self.accessToken = PDKClient.sharedInstance().oauthToken
-//            let parameters: [String : String] = ["fields": "first_name,id,last_name,url,image,username,bio,counts,created_at,account_type"]
-//            PDKClient.sharedInstance().getPath("/v1/me/", parameters: parameters, withSuccess: {
-//                (PDKResponseObject) in
-//                self.user = (PDKResponseObject?.user())!
-//                self.greetingLabel.text = "Welcome " + (PDKResponseObject?.user().firstName)! + " " + (PDKResponseObject?.user().lastName != nil ? (PDKResponseObject?.user().lastName)! : "")
-//            }) {
-//                (Error) in
-//                self.view.isUserInteractionEnabled = true
-//                self.greetingLabel.text = "Try again..."
-//            }
-//        }, andFailure: {
-//            (Error) in
-//            self.view.isUserInteractionEnabled = true
-//            self.greetingLabel.text = "Please try again..."
-//        })
-//    }
+    
+    @IBAction func boardsButtonClicked(_ sender: UIButton) {
+        var viewControllerBoards = ViewControllerBoards()
+        viewControllerBoards = self.story.instantiateViewController(withIdentifier: "ViewControllerBoards") as! ViewControllerBoards
+        self.navigationController!.pushViewController(viewControllerBoards, animated: true)
+    }
 }

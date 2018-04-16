@@ -12,10 +12,15 @@ class ViewControllerBoards: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    // MARK: Properies
     let images = [#imageLiteral(resourceName: "Image-1"), #imageLiteral(resourceName: "Image-2"), #imageLiteral(resourceName: "Image-3"), #imageLiteral(resourceName: "Image-4"), #imageLiteral(resourceName: "Image-5"), #imageLiteral(resourceName: "Image-6"), #imageLiteral(resourceName: "Image-7")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
     }
     
 }
