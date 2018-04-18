@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PinterestSDK
 
 class ViewControllerPersonalData: UIViewController {
     
@@ -17,6 +18,7 @@ class ViewControllerPersonalData: UIViewController {
     
     //MARK: Properties
     let story : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+    var viewControllerBoards = ViewControllerBoards()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,8 +33,20 @@ class ViewControllerPersonalData: UIViewController {
     //MARK: Metods
     
     @IBAction func boardsButtonClicked(_ sender: UIButton) {
-        var viewControllerBoards = ViewControllerBoards()
-        viewControllerBoards = self.story.instantiateViewController(withIdentifier: "ViewControllerBoards") as! ViewControllerBoards
-        self.navigationController!.pushViewController(viewControllerBoards, animated: true)
+        self.viewControllerBoards = self.story.instantiateViewController(withIdentifier: "ViewControllerBoards") as! ViewControllerBoards
+        self.navigationController!.pushViewController(self.viewControllerBoards, animated: true)
+        _ = self.viewControllerBoards.view
+       // self.getPins()
     }
+    
+//    func getPins() {
+//        PDKClient.sharedInstance().getPath("/v1/me/pins/", parameters: [:], withSuccess: {
+//            (PDKResponseObject) in
+//            self.view.isUserInteractionEnabled = true
+//            self.viewControllerBoards.pins = PDKResponseObject?.pins() as! [PDKPin]
+//        }) {
+//            (Error) in
+//            print("Error")
+//        }
+//    }
 }

@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F596AD720870A9300B772FF /* BoardAndPinCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F596AD620870A9200B772FF /* BoardAndPinCell.swift */; };
 		4FA2D0B2207FE40F000C8513 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA2D0B1207FE40F000C8513 /* AppDelegate.swift */; };
 		4FA2D0B7207FE40F000C8513 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FA2D0B5207FE40F000C8513 /* Main.storyboard */; };
 		4FA2D0B9207FE40F000C8513 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FA2D0B8207FE40F000C8513 /* Assets.xcassets */; };
 		4FA2D0BC207FE40F000C8513 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FA2D0BA207FE40F000C8513 /* LaunchScreen.storyboard */; };
-		4FA2D0CF20815270000C8513 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA2D0CE20815270000C8513 /* PhotoCell.swift */; };
 		4FA2D0F620817314000C8513 /* ViewControllerPersonalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA2D0F520817314000C8513 /* ViewControllerPersonalData.swift */; };
 		4FA2D0F820817357000C8513 /* ViewControllerBoards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA2D0F720817357000C8513 /* ViewControllerBoards.swift */; };
 		4FA2D0FA208173D2000C8513 /* ViewControllerAuthorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA2D0F9208173D2000C8513 /* ViewControllerAuthorization.swift */; };
@@ -32,13 +32,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4F596AD620870A9200B772FF /* BoardAndPinCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardAndPinCell.swift; sourceTree = "<group>"; };
 		4FA2D0AE207FE40F000C8513 /* UTPinterestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UTPinterestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FA2D0B1207FE40F000C8513 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4FA2D0B6207FE40F000C8513 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4FA2D0B8207FE40F000C8513 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4FA2D0BB207FE40F000C8513 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4FA2D0BD207FE40F000C8513 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4FA2D0CE20815270000C8513 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		4FA2D0F520817314000C8513 /* ViewControllerPersonalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerPersonalData.swift; sourceTree = "<group>"; };
 		4FA2D0F720817357000C8513 /* ViewControllerBoards.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerBoards.swift; sourceTree = "<group>"; };
 		4FA2D0F9208173D2000C8513 /* ViewControllerAuthorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerAuthorization.swift; sourceTree = "<group>"; };
@@ -68,6 +68,24 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		4F596AD820870AA600B772FF /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				4F596AD620870A9200B772FF /* BoardAndPinCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		4F596AD920870AB500B772FF /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				4FA2D0F9208173D2000C8513 /* ViewControllerAuthorization.swift */,
+				4FA2D0F520817314000C8513 /* ViewControllerPersonalData.swift */,
+				4FA2D0F720817357000C8513 /* ViewControllerBoards.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		4FA2D0A5207FE40F000C8513 = {
 			isa = PBXGroup;
 			children = (
@@ -90,24 +108,14 @@
 			isa = PBXGroup;
 			children = (
 				4FA2D0B1207FE40F000C8513 /* AppDelegate.swift */,
-				4FA2D0CD2081520E000C8513 /* Views */,
-				4FA2D0F9208173D2000C8513 /* ViewControllerAuthorization.swift */,
-				4FA2D0F520817314000C8513 /* ViewControllerPersonalData.swift */,
-				4FA2D0F720817357000C8513 /* ViewControllerBoards.swift */,
+				4F596AD920870AB500B772FF /* ViewControllers */,
+				4F596AD820870AA600B772FF /* Cells */,
 				4FA2D0B5207FE40F000C8513 /* Main.storyboard */,
 				4FA2D0B8207FE40F000C8513 /* Assets.xcassets */,
 				4FA2D0BA207FE40F000C8513 /* LaunchScreen.storyboard */,
 				4FA2D0BD207FE40F000C8513 /* Info.plist */,
 			);
 			path = UTPinterestApp;
-			sourceTree = "<group>";
-		};
-		4FA2D0CD2081520E000C8513 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				4FA2D0CE20815270000C8513 /* PhotoCell.swift */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		7262F0EC43595649B1D85762 /* Frameworks */ = {
@@ -242,7 +250,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4FA2D0CF20815270000C8513 /* PhotoCell.swift in Sources */,
+				4F596AD720870A9300B772FF /* BoardAndPinCell.swift in Sources */,
 				4FA2D0F820817357000C8513 /* ViewControllerBoards.swift in Sources */,
 				4FA2D0F620817314000C8513 /* ViewControllerPersonalData.swift in Sources */,
 				4FA2D0FA208173D2000C8513 /* ViewControllerAuthorization.swift in Sources */,

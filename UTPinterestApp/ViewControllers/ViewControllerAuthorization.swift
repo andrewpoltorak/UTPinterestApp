@@ -47,8 +47,9 @@ class ViewControllerAuthorization: UIViewController {
                 viewControllerPersonalData = self.story.instantiateViewController(withIdentifier: "ViewControllerPersonalData") as! ViewControllerPersonalData
                 self.navigationController!.pushViewController(viewControllerPersonalData, animated: true)
                 self.user = (PDKResponseObject?.user())!
+                _ = viewControllerPersonalData.view
                 viewControllerPersonalData.greetingLabel.text = "Welcome " + (PDKResponseObject?.user().firstName)! + " " + (PDKResponseObject?.user().lastName != nil ? (PDKResponseObject?.user().lastName)! : "")
-                
+
             }) {
                 (Error) in
                 self.view.isUserInteractionEnabled = true
@@ -60,9 +61,6 @@ class ViewControllerAuthorization: UIViewController {
             self.view.isUserInteractionEnabled = true
             self.startLabel.text = "Please try again..."
             self.activityIndicator.stopAnimating()
-            var viewControllerPersonalData = ViewControllerPersonalData()
-            viewControllerPersonalData = self.story.instantiateViewController(withIdentifier: "ViewControllerPersonalData") as! ViewControllerPersonalData
-            self.navigationController!.pushViewController(viewControllerPersonalData, animated: true)
         })
     }
     
