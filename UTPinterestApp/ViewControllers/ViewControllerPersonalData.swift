@@ -36,17 +36,18 @@ class ViewControllerPersonalData: UIViewController {
         self.viewControllerBoards = self.story.instantiateViewController(withIdentifier: "ViewControllerBoards") as! ViewControllerBoards
         self.navigationController!.pushViewController(self.viewControllerBoards, animated: true)
         _ = self.viewControllerBoards.view
-       // self.getPins()
+        self.getPins()
     }
     
-//    func getPins() {
-//        PDKClient.sharedInstance().getPath("/v1/me/pins/", parameters: [:], withSuccess: {
-//            (PDKResponseObject) in
-//            self.view.isUserInteractionEnabled = true
-//            self.viewControllerBoards.pins = PDKResponseObject?.pins() as! [PDKPin]
-//        }) {
-//            (Error) in
-//            print("Error")
-//        }
-//    }
+    func getPins() {
+    
+        PDKClient.sharedInstance().getPath("/v1/me/pins/", parameters: [:], withSuccess: {
+            (PDKResponseObject) in
+            self.view.isUserInteractionEnabled = true
+            self.viewControllerBoards.pins = PDKResponseObject?.pins() as! [PDKPin]
+        }) {
+            (Error) in
+            print("Error")
+        }
+    }
 }

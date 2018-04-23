@@ -12,6 +12,7 @@ import PinterestSDK
 class ViewControllerBoards: UIViewController {
     
     //MARK: Propereties
+    var pins: [PDKPin] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
