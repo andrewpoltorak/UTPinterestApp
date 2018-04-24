@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F3E9F12208FB3A4003B0CE0 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3E9F11208FB3A4003B0CE0 /* NetworkService.swift */; };
 		4F596AD720870A9300B772FF /* BoardAndPinCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F596AD620870A9200B772FF /* BoardAndPinCell.swift */; };
 		4FA2D0B2207FE40F000C8513 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA2D0B1207FE40F000C8513 /* AppDelegate.swift */; };
 		4FA2D0B7207FE40F000C8513 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FA2D0B5207FE40F000C8513 /* Main.storyboard */; };
@@ -32,6 +33,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4F3E9F11208FB3A4003B0CE0 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		4F596AD620870A9200B772FF /* BoardAndPinCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardAndPinCell.swift; sourceTree = "<group>"; };
 		4FA2D0AE207FE40F000C8513 /* UTPinterestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UTPinterestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FA2D0B1207FE40F000C8513 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				4FA2D0B1207FE40F000C8513 /* AppDelegate.swift */,
+				4F3E9F11208FB3A4003B0CE0 /* NetworkService.swift */,
 				4F596AD920870AB500B772FF /* ViewControllers */,
 				4F596AD820870AA600B772FF /* Cells */,
 				4FA2D0B5207FE40F000C8513 /* Main.storyboard */,
@@ -254,6 +257,7 @@
 				4FA2D0F820817357000C8513 /* ViewControllerBoards.swift in Sources */,
 				4FA2D0F620817314000C8513 /* ViewControllerPersonalData.swift in Sources */,
 				4FA2D0FA208173D2000C8513 /* ViewControllerAuthorization.swift in Sources */,
+				4F3E9F12208FB3A4003B0CE0 /* NetworkService.swift in Sources */,
 				4FA2D0B2207FE40F000C8513 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
