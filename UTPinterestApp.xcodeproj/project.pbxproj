@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4F3E9F12208FB3A4003B0CE0 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3E9F11208FB3A4003B0CE0 /* NetworkService.swift */; };
-		4F596AD720870A9300B772FF /* BoardAndPinCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F596AD620870A9200B772FF /* BoardAndPinCell.swift */; };
 		4FA2D0B2207FE40F000C8513 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA2D0B1207FE40F000C8513 /* AppDelegate.swift */; };
 		4FA2D0B7207FE40F000C8513 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FA2D0B5207FE40F000C8513 /* Main.storyboard */; };
 		4FA2D0B9207FE40F000C8513 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FA2D0B8207FE40F000C8513 /* Assets.xcassets */; };
@@ -16,6 +14,8 @@
 		4FA2D0F620817314000C8513 /* ViewControllerPersonalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA2D0F520817314000C8513 /* ViewControllerPersonalData.swift */; };
 		4FA2D0F820817357000C8513 /* ViewControllerBoards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA2D0F720817357000C8513 /* ViewControllerBoards.swift */; };
 		4FA2D0FA208173D2000C8513 /* ViewControllerAuthorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA2D0F9208173D2000C8513 /* ViewControllerAuthorization.swift */; };
+		4FB994B3209741EC007F329A /* UTNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB994B2209741EC007F329A /* UTNetworkService.swift */; };
+		4FB994B52097420F007F329A /* UTBoardAndPinCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB994B42097420F007F329A /* UTBoardAndPinCell.swift */; };
 		C9BB837C1980FC13E39D7A3D /* Pods_UTPinterestApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFD8E60C14401742B3C4CEEC /* Pods_UTPinterestApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,8 +33,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		4F3E9F11208FB3A4003B0CE0 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
-		4F596AD620870A9200B772FF /* BoardAndPinCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardAndPinCell.swift; sourceTree = "<group>"; };
 		4FA2D0AE207FE40F000C8513 /* UTPinterestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UTPinterestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FA2D0B1207FE40F000C8513 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4FA2D0B6207FE40F000C8513 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -44,6 +42,8 @@
 		4FA2D0F520817314000C8513 /* ViewControllerPersonalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerPersonalData.swift; sourceTree = "<group>"; };
 		4FA2D0F720817357000C8513 /* ViewControllerBoards.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerBoards.swift; sourceTree = "<group>"; };
 		4FA2D0F9208173D2000C8513 /* ViewControllerAuthorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerAuthorization.swift; sourceTree = "<group>"; };
+		4FB994B2209741EC007F329A /* UTNetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UTNetworkService.swift; sourceTree = "<group>"; };
+		4FB994B42097420F007F329A /* UTBoardAndPinCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UTBoardAndPinCell.swift; sourceTree = "<group>"; };
 		BB95A7F245D0FE2A8E112806 /* Pods-UTPinterestApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UTPinterestApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UTPinterestApp/Pods-UTPinterestApp.debug.xcconfig"; sourceTree = "<group>"; };
 		CFD8E60C14401742B3C4CEEC /* Pods_UTPinterestApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UTPinterestApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDD43EF62175D8BF24511586 /* Pods-UTPinterestApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UTPinterestApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-UTPinterestApp/Pods-UTPinterestApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -73,7 +73,7 @@
 		4F596AD820870AA600B772FF /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				4F596AD620870A9200B772FF /* BoardAndPinCell.swift */,
+				4FB994B42097420F007F329A /* UTBoardAndPinCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -110,7 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				4FA2D0B1207FE40F000C8513 /* AppDelegate.swift */,
-				4F3E9F11208FB3A4003B0CE0 /* NetworkService.swift */,
+				4FB994B2209741EC007F329A /* UTNetworkService.swift */,
 				4F596AD920870AB500B772FF /* ViewControllers */,
 				4F596AD820870AA600B772FF /* Cells */,
 				4FA2D0B5207FE40F000C8513 /* Main.storyboard */,
@@ -253,12 +253,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F596AD720870A9300B772FF /* BoardAndPinCell.swift in Sources */,
 				4FA2D0F820817357000C8513 /* ViewControllerBoards.swift in Sources */,
 				4FA2D0F620817314000C8513 /* ViewControllerPersonalData.swift in Sources */,
+				4FB994B3209741EC007F329A /* UTNetworkService.swift in Sources */,
 				4FA2D0FA208173D2000C8513 /* ViewControllerAuthorization.swift in Sources */,
-				4F3E9F12208FB3A4003B0CE0 /* NetworkService.swift in Sources */,
 				4FA2D0B2207FE40F000C8513 /* AppDelegate.swift in Sources */,
+				4FB994B52097420F007F329A /* UTBoardAndPinCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
