@@ -19,36 +19,20 @@ class ViewControllerAuthorization: UIViewController {
     //MARK: Properties
     let story : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
-        self.activityIndicator.stopAnimating()
         self.reloadInputViews()
     }
     
     //MARK: Metods
     
     func authenticateUser() {
-        self.activityIndicator.stopAnimating()
         let service = UTNetworkService()
-        service.authenticateUser()
-        self.userData()
-    }
-    
-    func userData() {
-            var viewControllerPersonalData = ViewControllerPersonalData()
-            viewControllerPersonalData = self.story.instantiateViewController(withIdentifier: "ViewControllerPersonalData") as! ViewControllerPersonalData
-            self.navigationController!.pushViewController(viewControllerPersonalData, animated: true)
-            _ = viewControllerPersonalData.view
-        let service = UTNetworkService()
-        let greetingWithName = service.userData()
-            viewControllerPersonalData.greetingLabel.text = greetingWithName
+        service.authenticateUser(from: self)
+        var viewControllerPersonalData = ViewControllerPersonalData()
+        viewControllerPersonalData = self.story.instantiateViewController(withIdentifier: "ViewControllerPersonalData") as! ViewControllerPersonalData
+        self.navigationController!.pushViewController(viewControllerPersonalData, animated: true)
+        _ = viewControllerPersonalData.view
+        viewControllerPersonalData.greetingLabel.text = service.greetingWithName
     }
     
     @IBAction func loginButtonClicked(_ sender: UIButton) {

@@ -1,45 +1,43 @@
-//
-//  NetworkService.swift
-//  UTPinterestApp
-//
-//  Created by Preferiti_mac on 24.04.18.
-//  Copyright © 2018 Admin. All rights reserved.
-//
-
 import Foundation
 import PinterestSDK
 
 class UTNetworkService {
-
+    
     //MARK: Properties
-    
     var user = PDKUser()
-    var accessToken = ""
+    var greetingWithName: String!
     
     
-    //MARK: Metods
-    
-    func authenticateUser() {
-        let viewControllerAuthorization = ViewControllerAuthorization()
-        PDKClient.sharedInstance().authenticate(withPermissions: [PDKClientReadPublicPermissions,PDKClientWritePublicPermissions,PDKClientReadRelationshipsPermissions,PDKClientWriteRelationshipsPermissions], from: viewControllerAuthorization, withSuccess: { (PDKResponseObject) in
-            self.accessToken = PDKClient.sharedInstance().oauthToken
-        }, andFailure: {
-            (Error) in
-            print("Please try again...")
+    //MARK: Methods
+    func authenticateUser(from viewController: UIViewController) {
+        let permissions = [PDKClientReadPublicPermissions,
+                           PDKClientWritePublicPermissions,
+                           PDKClientReadRelationshipsPermissions,
+                           PDKClientWriteRelationshipsPermissions]
+        PDKClient.sharedInstance().authenticate(withPermissions:permissions,
+                                                from: viewController,
+                                                withSuccess: { response in
+                                                    self.userData(completion: { withGreeting in
+                                                        self.greetingWithName = withGreeting
+                                                        print(self.greetingWithName ?? "fuck")
+                                                    })
+        }, andFailure: { error in
+            print("Error:`\(String(describing: error?.localizedDescription))`")
         })
     }
     
-    func userData() -> String {
-        var greetingWithName: String!
+    func userData(completion: @escaping (String) -> ()) {
         let parameters: [String : String] = ["fields": "first_name,id,last_name,url,image,username,bio,counts,created_at,account_type"]
-        PDKClient.sharedInstance().getPath("/v1/me/", parameters: parameters, withSuccess: {
-            (PDKResponseObject) in
-            self.user = (PDKResponseObject?.user())!
-            greetingWithName = "Welcome " + (PDKResponseObject?.user().firstName)! + " " + (PDKResponseObject?.user().lastName != nil ? (PDKResponseObject?.user().lastName)! : "")
-        }) {
-            (Error) in
-            print("Try again...")
-        }
-        return greetingWithName
+        PDKClient.sharedInstance().getPath("/v1/me/",
+                                           parameters: parameters,
+                                           withSuccess: { response in
+                                            self.user = (response?.user())!
+                                            var greeting: String!
+                                            greeting = "Welcome " + self.user.firstName + self.user.lastName
+                                            completion(greeting)
+                                            
+        }, andFailure: { error in
+            print("Error:`\(String(describing: error?.localizedDescription))`")
+        })
     }
 }

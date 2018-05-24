@@ -40,7 +40,6 @@ class ViewControllerPersonalData: UIViewController {
     }
     
     func getPins() {
-    
         PDKClient.sharedInstance().getPath("/v1/me/pins/", parameters: [:], withSuccess: {
             (PDKResponseObject) in
             self.view.isUserInteractionEnabled = true
