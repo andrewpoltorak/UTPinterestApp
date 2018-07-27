@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        PDKClient.configureSharedInstance(withAppId:"4968529110400773150")
+        PDKClient.configureSharedInstance(withAppId:"4980128968341471170")
         return true
     }
     
