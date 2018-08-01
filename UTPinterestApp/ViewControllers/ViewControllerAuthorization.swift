@@ -18,7 +18,6 @@ class ViewControllerAuthorization: UIViewController {
     
     //MARK: Properties
     let story : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-    var str: String!
     
     override func viewWillAppear(_ animated: Bool) {
         self.reloadInputViews()
@@ -28,15 +27,16 @@ class ViewControllerAuthorization: UIViewController {
     //MARK: Metods
     
     func authenticateUser() {
+        var stringWithName: String!
         let service = UTNetworkService()
-        service.userData(completion: { withGreeting in
-            self.str = withGreeting
+        service.userData(viewControllerAuthorization: self, completion: { withGreeting in
+            stringWithName = withGreeting
         })
         var viewControllerPersonalData = ViewControllerPersonalData()
         viewControllerPersonalData = self.story.instantiateViewController(withIdentifier: "ViewControllerPersonalData") as! ViewControllerPersonalData
         self.navigationController!.pushViewController(viewControllerPersonalData, animated: true)
         _ = viewControllerPersonalData.view
-        viewControllerPersonalData.greetingLabel.text = self.str ?? "Failet"
+        viewControllerPersonalData.greetingLabel.text = stringWithName ?? "Failed"
     }
     
     @IBAction func loginButtonClicked(_ sender: UIButton) {

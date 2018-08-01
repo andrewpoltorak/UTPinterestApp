@@ -19,9 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool
-    {
-        return PDKClient.sharedInstance().handleCallbackURL(url)
+    func application(_ application: UIApplication, handleOpen url: URL) -> Bool {
+        return PDKClient.sharedInstance().handleCallbackURL(url as URL!)
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
