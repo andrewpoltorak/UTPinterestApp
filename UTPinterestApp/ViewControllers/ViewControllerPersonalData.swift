@@ -28,7 +28,7 @@ class ViewControllerPersonalData: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-    //MARK: Metod
+    //MARK: Method
     
     @IBAction func boardsButtonClicked(_ sender: UIButton) {
         var viewControllerBoards = ViewControllerBoards()

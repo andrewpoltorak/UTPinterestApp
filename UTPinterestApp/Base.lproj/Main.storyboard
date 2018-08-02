@@ -28,9 +28,65 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="75o-yP-iRi">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <inset key="scrollIndicatorInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="5" id="EaB-9M-tep">
+                                    <size key="itemSize" width="328" height="342"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoCell" id="GpE-Ym-pzo">
+                                        <rect key="frame" x="23.5" y="0.0" width="328" height="342"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="328" height="342"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="1d2-8h-eaZ">
+                                                    <rect key="frame" x="44" y="107" width="280" height="168"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="IZT-OX-G1j">
+                                                            <rect key="frame" x="0.0" y="0.0" width="328" height="342"/>
+                                                        </imageView>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="1d2-8h-eaZ" firstAttribute="top" secondItem="GpE-Ym-pzo" secondAttribute="top" id="CqP-j4-nfQ"/>
+                                            <constraint firstAttribute="trailing" secondItem="1d2-8h-eaZ" secondAttribute="trailing" id="dEw-kb-4gH"/>
+                                            <constraint firstAttribute="bottom" secondItem="1d2-8h-eaZ" secondAttribute="bottom" id="nvB-Wt-yvm"/>
+                                            <constraint firstItem="1d2-8h-eaZ" firstAttribute="leading" secondItem="GpE-Ym-pzo" secondAttribute="leading" id="qHa-B8-hbz"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="1zL-sC-3gt"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" red="0.98623579740524292" green="0.68813169002532959" blue="0.7083665132522583" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="wYF-Sj-1GV" firstAttribute="top" secondItem="75o-yP-iRi" secondAttribute="bottom" id="9ZY-Yx-yQ7"/>
+                            <constraint firstItem="75o-yP-iRi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="b88-2u-SC0"/>
+                            <constraint firstItem="75o-yP-iRi" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="biF-KU-Yid"/>
+                            <constraint firstAttribute="trailing" secondItem="75o-yP-iRi" secondAttribute="trailing" id="cP3-Ws-uxQ"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Boards and Pins" id="xo7-kM-uJg"/>
+                    <connections>
+                        <outlet property="collectionView" destination="75o-yP-iRi" id="Dmk-6C-SST"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -194,4 +250,7 @@
             <point key="canvasLocation" x="-391.25" y="65.588333333333324"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="placeholder" width="200" height="300"/>
+    </resources>
 </document>

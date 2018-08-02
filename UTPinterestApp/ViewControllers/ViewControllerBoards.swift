@@ -11,6 +11,12 @@ import PinterestSDK
 
 class ViewControllerBoards: UIViewController {
     
+    //MARK: Outlets
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    //MARK: Properties
+    var pinsArray: [PDKPin] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -25,8 +31,21 @@ class ViewControllerBoards: UIViewController {
     func getPins() {
         let pinService = UTNetworkService()
         pinService.getPins(completion: { pins in
-            let pinsArray: [PDKPin] = pins
-            print(pinsArray)
+            self.pinsArray = pins
         })
+    }
+}
+
+//MARK: Data source
+
+extension ViewControllerBoards: UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.pinsArray.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath)
+        return cell
     }
 }
