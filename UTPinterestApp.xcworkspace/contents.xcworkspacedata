@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:UTPinterestApp/Cell/PhotoCell.swift">
+   </FileRef>
+   <FileRef
       location = "group:UTPinterestApp.xcodeproj">
    </FileRef>
    <FileRef

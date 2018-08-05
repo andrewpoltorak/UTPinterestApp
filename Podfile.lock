@@ -18,14 +18,22 @@ PODS:
     - AFNetworking (~> 3.0)
     - SAMKeychain
   - SAMKeychain (1.5.3)
+  - SDWebImage (4.4.2):
+    - SDWebImage/Core (= 4.4.2)
+  - SDWebImage/Core (4.4.2)
+  - SwiftyJSON (4.1.0)
 
 DEPENDENCIES:
   - PinterestSDK (from `https://github.com/pinterest/ios-pdk.git`)
+  - SDWebImage (~> 4.0)
+  - SwiftyJSON (~> 4.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AFNetworking
     - SAMKeychain
+    - SDWebImage
+    - SwiftyJSON
 
 EXTERNAL SOURCES:
   PinterestSDK:
@@ -40,7 +48,9 @@ SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   PinterestSDK: 798aced4e2ce7a9607b3df1ac77abf2c72f57734
   SAMKeychain: 483e1c9f32984d50ca961e26818a534283b4cd5c
+  SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
+  SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
 
-PODFILE CHECKSUM: 68f8a26dc04a2d128eb7569dcf54644b70ca503d
+PODFILE CHECKSUM: d1c466592262f035b21d8169ea42b06045468b15
 
 COCOAPODS: 1.5.3
