@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="0HK-xK-ZLL">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -20,7 +16,7 @@
         <!--Boards and Pins-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="ViewControllerBoards" id="BYZ-38-t0r" customClass="ViewControllerBoards" customModule="UTPinterestApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewControllerBoards" id="BYZ-38-t0r" customClass="PinsViewController" customModule="UTPinterestApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0qT-AN-Ioh"/>
                         <viewControllerLayoutGuide type="bottom" id="wYF-Sj-1GV"/>
@@ -96,10 +92,10 @@
             </objects>
             <point key="canvasLocation" x="105.5" y="706.5"/>
         </scene>
-        <!--View Controller Personal Data-->
+        <!--Profile View Controller-->
         <scene sceneID="udw-82-C4e">
             <objects>
-                <viewController storyboardIdentifier="ViewControllerPersonalData" id="Hrm-Jv-BVA" customClass="ViewControllerPersonalData" customModule="UTPinterestApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewControllerPersonalData" id="Hrm-Jv-BVA" customClass="ProfileViewController" customModule="UTPinterestApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cdZ-cF-rTN"/>
                         <viewControllerLayoutGuide type="bottom" id="2Eq-3S-Vja"/>
@@ -168,7 +164,7 @@
         <!--Authorization-->
         <scene sceneID="dDg-DM-4is">
             <objects>
-                <viewController id="076-kA-I2U" customClass="ViewControllerAuthorization" customModule="UTPinterestApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="076-kA-I2U" customClass="AuthorizationViewController" customModule="UTPinterestApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="tGX-q2-Zx1"/>
                         <viewControllerLayoutGuide type="bottom" id="FwN-a4-z4s"/>

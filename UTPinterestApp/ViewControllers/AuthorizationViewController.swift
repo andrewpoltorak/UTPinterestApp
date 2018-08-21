@@ -9,7 +9,7 @@
 import UIKit
 import PinterestSDK
 
-class ViewControllerAuthorization: UIViewController {
+class AuthorizationViewController: UIViewController {
     
     //MARK: Outlets
     @IBOutlet weak var loginButton: UIButton!
@@ -29,11 +29,11 @@ class ViewControllerAuthorization: UIViewController {
     func authenticateUser() {
         var stringWithName: String!
         let service = UTNetworkService()
-        service.userData(viewControllerAuthorization: self, completion: { withGreeting in
+        service.userData(authorizationViewController: self, completion: { withGreeting in
             stringWithName = withGreeting
         })
-        var viewControllerPersonalData = ViewControllerPersonalData()
-        viewControllerPersonalData = self.story.instantiateViewController(withIdentifier: "ViewControllerPersonalData") as! ViewControllerPersonalData
+        var viewControllerPersonalData = ProfileViewController()
+        viewControllerPersonalData = self.story.instantiateViewController(withIdentifier: "ViewControllerPersonalData") as! ProfileViewController
         self.navigationController!.pushViewController(viewControllerPersonalData, animated: true)
         _ = viewControllerPersonalData.view
         viewControllerPersonalData.greetingLabel.text = stringWithName ?? "Failed"

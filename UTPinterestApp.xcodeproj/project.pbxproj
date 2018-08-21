@@ -12,9 +12,9 @@
 		4FA2D0B7207FE40F000C8513 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FA2D0B5207FE40F000C8513 /* Main.storyboard */; };
 		4FA2D0B9207FE40F000C8513 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FA2D0B8207FE40F000C8513 /* Assets.xcassets */; };
 		4FA2D0BC207FE40F000C8513 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FA2D0BA207FE40F000C8513 /* LaunchScreen.storyboard */; };
-		4FA2D0F620817314000C8513 /* ViewControllerPersonalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA2D0F520817314000C8513 /* ViewControllerPersonalData.swift */; };
-		4FA2D0F820817357000C8513 /* ViewControllerBoards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA2D0F720817357000C8513 /* ViewControllerBoards.swift */; };
-		4FA2D0FA208173D2000C8513 /* ViewControllerAuthorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA2D0F9208173D2000C8513 /* ViewControllerAuthorization.swift */; };
+		4FA2D0F620817314000C8513 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA2D0F520817314000C8513 /* ProfileViewController.swift */; };
+		4FA2D0F820817357000C8513 /* PinsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA2D0F720817357000C8513 /* PinsViewController.swift */; };
+		4FA2D0FA208173D2000C8513 /* AuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA2D0F9208173D2000C8513 /* AuthorizationViewController.swift */; };
 		4FB994B3209741EC007F329A /* UTNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB994B2209741EC007F329A /* UTNetworkService.swift */; };
 		C9BB837C1980FC13E39D7A3D /* Pods_UTPinterestApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFD8E60C14401742B3C4CEEC /* Pods_UTPinterestApp.framework */; };
 /* End PBXBuildFile section */
@@ -40,9 +40,9 @@
 		4FA2D0B8207FE40F000C8513 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4FA2D0BB207FE40F000C8513 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4FA2D0BD207FE40F000C8513 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4FA2D0F520817314000C8513 /* ViewControllerPersonalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerPersonalData.swift; sourceTree = "<group>"; };
-		4FA2D0F720817357000C8513 /* ViewControllerBoards.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerBoards.swift; sourceTree = "<group>"; };
-		4FA2D0F9208173D2000C8513 /* ViewControllerAuthorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerAuthorization.swift; sourceTree = "<group>"; };
+		4FA2D0F520817314000C8513 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		4FA2D0F720817357000C8513 /* PinsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinsViewController.swift; sourceTree = "<group>"; };
+		4FA2D0F9208173D2000C8513 /* AuthorizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewController.swift; sourceTree = "<group>"; };
 		4FB994B2209741EC007F329A /* UTNetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UTNetworkService.swift; sourceTree = "<group>"; };
 		BB95A7F245D0FE2A8E112806 /* Pods-UTPinterestApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UTPinterestApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UTPinterestApp/Pods-UTPinterestApp.debug.xcconfig"; sourceTree = "<group>"; };
 		CFD8E60C14401742B3C4CEEC /* Pods_UTPinterestApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UTPinterestApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -81,9 +81,9 @@
 		4F596AD920870AB500B772FF /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				4FA2D0F9208173D2000C8513 /* ViewControllerAuthorization.swift */,
-				4FA2D0F520817314000C8513 /* ViewControllerPersonalData.swift */,
-				4FA2D0F720817357000C8513 /* ViewControllerBoards.swift */,
+				4FA2D0F9208173D2000C8513 /* AuthorizationViewController.swift */,
+				4FA2D0F520817314000C8513 /* ProfileViewController.swift */,
+				4FA2D0F720817357000C8513 /* PinsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -251,10 +251,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4FA2D0F820817357000C8513 /* ViewControllerBoards.swift in Sources */,
-				4FA2D0F620817314000C8513 /* ViewControllerPersonalData.swift in Sources */,
+				4FA2D0F820817357000C8513 /* PinsViewController.swift in Sources */,
+				4FA2D0F620817314000C8513 /* ProfileViewController.swift in Sources */,
 				4FB994B3209741EC007F329A /* UTNetworkService.swift in Sources */,
-				4FA2D0FA208173D2000C8513 /* ViewControllerAuthorization.swift in Sources */,
+				4FA2D0FA208173D2000C8513 /* AuthorizationViewController.swift in Sources */,
 				4F4C7566211467220090032E /* PhotoCell.swift in Sources */,
 				4FA2D0B2207FE40F000C8513 /* AppDelegate.swift in Sources */,
 			);

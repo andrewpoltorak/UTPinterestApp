@@ -9,7 +9,7 @@
 import UIKit
 import PinterestSDK
 
-class ViewControllerPersonalData: UIViewController {
+class ProfileViewController: UIViewController {
     
     //MARK: Outlets
     @IBOutlet weak var greetingLabel: UILabel!
@@ -31,8 +31,8 @@ class ViewControllerPersonalData: UIViewController {
     //MARK: Method
     
     @IBAction func boardsButtonClicked(_ sender: UIButton) {
-        var viewControllerBoards = ViewControllerBoards()
-        viewControllerBoards = self.story.instantiateViewController(withIdentifier: "ViewControllerBoards") as! ViewControllerBoards
+        var viewControllerBoards = PinsViewController()
+        viewControllerBoards = self.story.instantiateViewController(withIdentifier: "ViewControllerBoards") as! PinsViewController
         self.navigationController!.pushViewController(viewControllerBoards, animated: true)
         _ = viewControllerBoards.view
     }

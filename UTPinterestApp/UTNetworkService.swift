@@ -8,7 +8,7 @@ class UTNetworkService {
     
     //MARK: Methods
     
-    func userData(viewControllerAuthorization: UIViewController, completion: @escaping (String) -> ()) {
+    func userData(authorizationViewController: UIViewController, completion: @escaping (String) -> ()) {
         if PDKClient.sharedInstance().authorized == true {
             let parameters: [String : String] = ["fields": "first_name,id,last_name,url,image,username,bio,counts,created_at,account_type"]
             PDKClient.sharedInstance().getPath("/v1/me/",
@@ -23,7 +23,7 @@ class UTNetworkService {
                 print("Error:`\(String(describing: error?.localizedDescription))`")
             })
         } else {
-            self.authenticateUser(from: viewControllerAuthorization)
+            self.authenticateUser(from: authorizationViewController)
         }
     }
     
@@ -35,7 +35,7 @@ class UTNetworkService {
         PDKClient.sharedInstance().authenticate(withPermissions:permissions,
                                                 from: viewController,
                                                 withSuccess: { response in
-                                                    self.userData(viewControllerAuthorization: viewController, completion: { withGreeting in
+                                                    self.userData(authorizationViewController: viewController, completion: { withGreeting in
                                                         print(withGreeting)
                                                     })
         }, andFailure: { error in

@@ -11,7 +11,7 @@ import PinterestSDK
 import SDWebImage
 import SwiftyJSON
 
-class ViewControllerBoards: UIViewController {
+class PinsViewController: UIViewController {
     
     //MARK: Outlets
     @IBOutlet weak var collectionView: UICollectionView!
@@ -80,7 +80,7 @@ class ViewControllerBoards: UIViewController {
 
 //MARK: Flow layout delegate
 
-extension ViewControllerBoards: UICollectionViewDelegateFlowLayout {
+extension PinsViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let numberOfColums: CGFloat = 2
@@ -93,7 +93,7 @@ extension ViewControllerBoards: UICollectionViewDelegateFlowLayout {
 
 //MARK: Data source
 
-extension ViewControllerBoards: UICollectionViewDataSource {
+extension PinsViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.pins.count
@@ -106,7 +106,7 @@ extension ViewControllerBoards: UICollectionViewDataSource {
     }
 }
 
-extension ViewControllerBoards {
+extension PinsViewController {
     
     func hexStringToUIColor (hex:String) -> UIColor {
         var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
