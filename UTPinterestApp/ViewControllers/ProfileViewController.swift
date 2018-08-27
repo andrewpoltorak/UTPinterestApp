@@ -9,6 +9,9 @@
 import UIKit
 import PinterestSDK
 
+let profileIdentifier = "ViewControllerPersonalData"
+let boardsIdentifier = "ViewControllerBoards"
+
 class ProfileViewController: UIViewController {
     
     //MARK: Outlets
@@ -17,23 +20,24 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var helloLabel: UILabel!
     
     //MARK: Properties
-    let story : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+    var name: String?
+    
+    static func create(with name: String) -> ProfileViewController {
+        let controller = mainStoryboard.instantiateViewController(withIdentifier: profileIdentifier) as! ProfileViewController
+        controller.name = name
+        return controller
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Greeting"
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+        greetingLabel.text = name
     }
     
     //MARK: Method
     
     @IBAction func boardsButtonClicked(_ sender: UIButton) {
-        var viewControllerBoards = PinsViewController()
-        viewControllerBoards = self.story.instantiateViewController(withIdentifier: "ViewControllerBoards") as! PinsViewController
-        self.navigationController!.pushViewController(viewControllerBoards, animated: true)
-        _ = viewControllerBoards.view
+        let viewControllerBoards = mainStoryboard.instantiateViewController(withIdentifier: boardsIdentifier) as! PinsViewController
+        self.navigationController?.pushViewController(viewControllerBoards, animated: true)
     }
 }

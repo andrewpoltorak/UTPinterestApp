@@ -9,6 +9,9 @@
 import UIKit
 import PinterestSDK
 
+let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+let service = UTNetworkService()
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
@@ -20,27 +23,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ application: UIApplication, handleOpen url: URL) -> Bool {
-        return PDKClient.sharedInstance().handleCallbackURL(url as URL!)
+        return PDKClient.sharedInstance().handleCallbackURL(url)
     }
     
-    func applicationWillResignActive(_ application: UIApplication) {
-        
-    }
-    
-    func applicationDidEnterBackground(_ application: UIApplication) {
-        
-    }
-    
-    func applicationWillEnterForeground(_ application: UIApplication) {
-        
-    }
-    
-    func applicationDidBecomeActive(_ application: UIApplication) {
-        
-    }
-    
-    func applicationWillTerminate(_ application: UIApplication) {
-        
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        return PDKClient.sharedInstance().handleCallbackURL(url)
     }
 }
 

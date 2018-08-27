@@ -1,5 +1,12 @@
 import Foundation
 import PinterestSDK
+import SwiftyJSON
+
+class PinDetails {
+    var url: String?
+    var size: CGSize = .zero
+    var color: UIColor?
+}
 
 class UTNetworkService {
     
@@ -53,5 +60,31 @@ class UTNetworkService {
         }) { (Error) in
             print(Error ?? "Error")
         }
+    }
+    
+    func loadPinDetails(_ pinIdentifier: String,
+                        completion: @escaping (PinDetails) -> ()) {
+        let fields: Set = ["image", "color"]
+        PDKClient.sharedInstance().getPinWithIdentifier(pinIdentifier, fields: fields, withSuccess: {
+            let pin = JSON($0?.pin().images["original"] as Any)
+            let details = PinDetails()
+            
+            if let hexColor = JSON($0?.parsedJSONDictionary as Any)["color"].string {
+                details.color = UIColor.hexStringToUIColor(hex: hexColor)
+            }
+            
+            if let rawURL = pin["url"].string {
+                details.url = rawURL
+            }
+            
+            if let width = pin["width"].double {
+                details.size.width = CGFloat(width)
+            }
+            
+            if let height = pin["height"].double {
+                details.size.height = CGFloat(height)
+            }
+            completion(details)
+        }) { print($0) }
     }
 }
